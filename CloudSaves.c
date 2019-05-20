@@ -18,6 +18,7 @@ int printPaths;
 int checkInet;
 int copySubfoldersToo;
 char hostaddress[60];
+char iniName[30] = "CloudSaves.ini"; //EDIT THIS, for example "Game.ini" to keep better track which game this ini file is configured for
 
 //commands get created when used
 char localUpdateCmd[255];
@@ -39,7 +40,8 @@ int main(void) {
     //get the full path to the .ini file (necessary for GetPrivateProfileString)
     getcwd(currentDir, sizeof(currentDir));
     strcat(pathToIni, currentDir);
-    strcat(pathToIni, "\\CloudSaves.ini");
+    strcat(pathToIni, "\\");
+    strcat(pathToIni, iniName);
 
 
     //ini parsing, checks if it exists, creates it if not, otherwise loads the data
